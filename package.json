@@ -1,0 +1,21 @@
+{
+  "name": "terminal-translate",
+  "version": "1.0.0",
+  "description": "a tearmail-transtalte tool!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "translate"
+  ],
+  "bin": {
+    "tr": "./index.js",
+    "translate": "./index.js"
+  },
+  "author": "ShanaMaid",
+  "license": "MIT",
+  "dependencies": {
+    "utf8": "^2.1.2"
+  }
+}
