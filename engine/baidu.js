@@ -1,26 +1,30 @@
 const http = require('http');
 const MD5 = require('../lib/md5');
-const utf8 = require('utf8');
-const fs = require("fs");
+const fs = require('fs');
 
-module.exports = (query, to = 'zh') => {
-  let config = fs.readFileSync('config.json');
-  config = JSON.parse(config);
+module.exports = (query, config) => {
   const appid = config.baidu.appid;
+  const key = config.baidu.key;
+  let languageFrom = config.baidu.from;
+  let languageTo = config.baidu.to;
   const salt = (new Date).getTime();
+
+
   const data = {
     q: query,
-    from: 'auto',
-    to,
+    from: languageFrom,
+    to: languageTo,
     appid,
     salt, 
-    sign: MD5(appid + query + salt + config.baidu.key)
+    sign: MD5(appid + query + salt + key)
   }
 
   let url = "http://api.fanyi.baidu.com/api/trans/vip/translate?";
   for (let item in data) {
     url += `${item}=${data[item]}&`;
   }
+
+  url = encodeURI(url);
 
   http.get(url, (res) => {
     var resData = "";
@@ -31,6 +35,10 @@ module.exports = (query, to = 'zh') => {
       resData = JSON.parse(resData);
       let template = ` ~ 原文: query \r\n ~ 译文: result \r\n \r\n`;
       let str = '';
+      if (!("trans_result" in resData)) {
+        console.log('查询出错!');
+        return;
+      }
       for (let item of resData.trans_result) {
         str += template.replace('query', item.src).replace('result', item.dst);
       }

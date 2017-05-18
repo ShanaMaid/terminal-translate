@@ -6,6 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ShanaMaid/terminal-translate.git"
+  },
   "keywords": [
     "translate"
   ],
@@ -16,6 +20,7 @@
   "author": "ShanaMaid",
   "license": "MIT",
   "dependencies": {
-    "utf8": "^2.1.2"
+    "commander": "^2.9.0",
+    "is-chinese": "^1.2.5"
   }
 }
