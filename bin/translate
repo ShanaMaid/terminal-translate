@@ -2,10 +2,11 @@
 
 const program = require('commander');
 const fs = require("fs");
-const translate = require("../index.js")
+const translate = require("../index.js");
+const path = require('path');
 
-const config = JSON.parse(fs.readFileSync('../config.json'));
-const package = JSON.parse(fs.readFileSync('../package.json'));
+const config = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../config.json')));
+const package = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../package.json')));
 
 program
   .usage(`\r\n  ${package.description}\r\n  GithubID: ${package.author}\r\n  Repository: ${package.repository.url}`)
@@ -13,7 +14,7 @@ program
   .option('-f, --baidu-from <from>', 'baidu engine: from language, default: auto')
   .option('-t, --baidu-to <to>', 'baidu engine: to language, default: zh')
   .option('-l, --baidu-language', 'baidu engine language')
-  .option('-e, --engine <to>', 'change translate engine')
+  .option('-e, --engine <engine>', 'change translate engine')
   .option('-c, --config', 'show config.json')
   .parse(process.argv);
 
@@ -60,6 +61,21 @@ else if (program.baiduLanguage) {
   console.log(language);
 }
 
+// change engine
+else if (program.engine) {
+  if (program.engine !== 'default' && (program.engine in config)) {
+    config.default = program.engine;
+    fs.writeFile('../config.json', JSON.stringify(config));
+    console.log('success!');
+    return;
+  }
+  delete config.default;
+  console.log(`Error!\r\n  ~ The ${program.engine} is not exsit! \r\n  ~ Your input should be one of: `);
+  for (let item in config) {
+    console.log(`   ~  ${item}`);
+  }
+}
+
 // show config.json
 else if(program.config) {
   delete config.baidu.language;
@@ -68,7 +84,7 @@ else if(program.config) {
 
 // translate
 else if (program.args.length > 0) {
-  translate(program.args.join("\n"), config);
+  translate(program.args, config);
 }
 
 // default

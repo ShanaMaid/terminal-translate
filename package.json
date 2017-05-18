@@ -1,6 +1,6 @@
 {
   "name": "terminal-translate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a tearmail-transtalte tool!",
   "main": "index.js",
   "scripts": {
@@ -11,11 +11,14 @@
     "url": "https://github.com/ShanaMaid/terminal-translate.git"
   },
   "keywords": [
-    "translate"
+    "translate",
+    "youdao",
+    "baidu",
+    "fanyi"
   ],
   "bin": {
-    "tr": "./index.js",
-    "translate": "./index.js"
+    "tr": "./bin/translate",
+    "translate": "./bin/translate"
   },
   "author": "ShanaMaid",
   "license": "MIT",
