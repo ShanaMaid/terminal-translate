@@ -1,5 +1,6 @@
 const http = require('http');
 const MD5 = require('../lib/md5');
+const chalk = require('chalk');
 
 module.exports = (query, config) => {
   const appid = config.baidu.appid;
@@ -33,7 +34,7 @@ module.exports = (query, config) => {
     });
     res.on("end", function() {
       resData = JSON.parse(resData);
-      let template = `\r\n ~ query \r\n ~ result \r\n`;
+      let template = `\r\n ${chalk.green('~')} query \r\n ${chalk.green('~')} result \r\n`;
       let str = '\r\n';
       if (!("trans_result" in resData)) {
         console.log('查询出错!错误信息如下:');
@@ -41,7 +42,7 @@ module.exports = (query, config) => {
         return;
       }
       for (let item of resData.trans_result) {
-        str += template.replace('query', item.src).replace('result', item.dst);
+        str += template.replace('query', chalk.cyan(item.src)).replace('result', chalk.cyan(item.dst));
       }
       console.log(str);
     });

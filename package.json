@@ -1,7 +1,7 @@
 {
   "name": "terminal-translate",
-  "version": "1.0.3",
-  "description": "a tearmail-transtalte tool!",
+  "version": "1.0.4",
+  "description": "a tearmail-translate tool!",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,10 @@
     "translate",
     "youdao",
     "baidu",
-    "fanyi"
+    "fanyi",
+    "iciba",
+    "tool",
+    "command"
   ],
   "bin": {
     "tl": "./bin/translate",
@@ -23,6 +26,7 @@
   "author": "ShanaMaid",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^1.1.3",
     "commander": "^2.9.0",
     "is-chinese": "^1.2.5"
   }

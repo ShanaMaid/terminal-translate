@@ -1,5 +1,5 @@
 # terminal-translate
-[![build](https://img.shields.io/badge/npm-1.0.3-blue.svg)](https://github.com/ShanaMaid/terminal-translate) 
+[![build](https://img.shields.io/badge/npm-1.0.4-blue.svg)](https://github.com/ShanaMaid/terminal-translate) 
 [![build](https://img.shields.io/npm/l/express.svg)](https://github.com/ShanaMaid/terminal-translate)
 [![download](https://img.shields.io/npm/dt/terminal-translate.svg?style=flat-square)](https://www.npmjs.com/package/terminal-translate)
 
@@ -156,6 +156,8 @@ tl -e iciba
 
 
 ## 版本更新记录
+
+v1.0.4 翻译结果支持彩色显示，更加显眼瞩目
 
 v1.0.3 支持爱词霸翻译引擎，新增3个有道翻译`key`
 

@@ -1,17 +1,18 @@
 const http = require('http');
+const chalk = require('chalk');
 
 module.exports = (query, config) => {
   const pos = Math.floor(Math.random() * config.youdao.length);
   const key = config.youdao[pos].key;
   const keyfrom = config.youdao[pos].keyfrom;
-
+  const q = query.join(' ');
   const data = {
     key,
     keyfrom,
     type: 'data',
     doctype: 'json',
     version: '1.1',
-    q: query.join(' ')
+    q
   }
 
   const errorCode = {
@@ -40,38 +41,39 @@ module.exports = (query, config) => {
       resData = JSON.parse(resData);
       let str = '';
       if (resData.errorCode === 0) {
-        str += `\r\n  ~ ${resData.query}`;
+        str += `\r\n  ${chalk.green('~')} ${chalk.cyan(resData.query)}`;
         
         if ('basic' in resData) {
           let basic = resData.basic
           if ('phonetic' in basic) {
-            str += `-[${basic.phonetic}]`;
+            str +=  chalk.magenta(` - [${basic.phonetic}]`);
           }
           if ('us-phonetic' in basic) {
-            str += `   美[${basic['us-phonetic']}]`;
+            str += chalk.magenta(`   美[${basic['us-phonetic']}]`);
           }
           if ('uk-phonetic' in basic) {
-            str += `   英[${basic['uk-phonetic']}]`;
+            str += chalk.magenta(`   英[${basic['uk-phonetic']}]`);
           }
-          str += `\r\n  ~ ${resData.translation.join(',')}`;
+          str += `\r\n  ${chalk.green('~')} ${chalk.cyan(resData.translation.join(','))}`;
           
           if ('explains' in basic) {
             str += `\r\n`;
             for (let item of basic.explains) {
-              str += `\r\n   -  ${item}`;
+              str += chalk.green(`\r\n   -  ${item}`);
             }
             str += `\r\n`;
           }
         } else {
-          str += `\r\n  ~ ${resData.translation.join(',')}`;
+          str += `\r\n  ${chalk.green('~')} ${chalk.cyan(resData.translation.join(','))}`;
         }
         
 
         if ('web' in resData) {
           let count = 1;
+          let regExp = new RegExp(`(${query.join('|')})`, 'ig');
           for (let item of resData.web) {
-            str += `\r\n   ${count++}. ${item.key}`;
-            str += `\r\n     ${item.value.join(',')} \r\n`;
+            str += `\r\n   ${chalk.gray(count++)}. ${item.key.replace(regExp, chalk.yellow(`$&`))}`;
+            str += chalk.blue(`\r\n     ${item.value.join(',')} \r\n`);
           }
           str += `\r\n`;
         }
