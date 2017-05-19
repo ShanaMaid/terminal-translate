@@ -7,6 +7,9 @@
 - [x] 百度翻译
 - [x] 有道翻译
 
+
+工具默认使用`有道翻译`！
+
 ...持续添加中
 
 ## 安装
@@ -15,7 +18,8 @@ npm install terminal-translate -g
 ```
 
 ## 帮助
-`tr -h` 激活帮助菜单
+指令`tl` 或者 `translate`
+`tl -h` 查看帮助菜单
 ```
   Usage: translate
   a tearmail-transtalte tool!
@@ -44,50 +48,43 @@ npm install terminal-translate -g
 
 切换翻译引擎为百度翻译输入以下指令
 ```
-tr -e baidu
+tl -e baidu
 ```
 
 修改百度翻译引擎语言翻译结果为英语，翻译结果不能修改`auto`
 ```
-tr -t en
+tl -t en
 ```
 
 修改百度翻译引擎语言翻译起始语言为中文(不建议修改，默认值为auto，会自动检测)
 ```
-tr -f zh
+tl -f zh
 ```
 
 查看百度翻译引擎支持的语言翻译列表
 ```
-tr -l
+tl -l
 ```
 
 单个单词翻译
 ```
-tr word
-
-translate word
+tl word
 ```
 
 多个单词以空格分隔
 ```
-tr apple book
-
-translate apple book
+tl apple book
 ```
 
 句子翻译请以双引号包裹
 ```
-tr "I love your money!"
+tl "I love you, baby!"
 
-translate "I love your money"
 ```
 
 单词句子混合同时翻译
 ```
-tr apple book "I love your money!"
-
-translate apple book "I love your money!"
+tl apple book "I love you, baby!"
 ```
 
 混合翻译
@@ -102,9 +99,7 @@ translate apple book "I love your money!"
 
 切换翻译引擎为有道翻译输入以下指令
 ```
-tr -e youdao
-
-translate -e youdao
+tl -e youdao
 ```
 
 单个单词翻译结果
@@ -156,10 +151,24 @@ translate -e youdao
       "vie": "越南语 - Vietnamese"
     }
   },
-  "youdao": {
-    "key": "1253992655",
-    "keyfrom": "ShanaTranslate"
-  }
+  "youdao": [
+    {
+      "key": "1253992655",
+      "keyfrom": "ShanaTranslate"
+    },
+    {
+      "key": "303727991",
+      "keyfrom": "ShanaTool"
+    },
+    {
+      "key": "825633179",
+      "keyfrom": "ShanaTool2"
+    },
+    {
+      "key": "825633180",
+      "keyfrom": "ShanaTool3"
+    }
+  ]
 }
 ```
 

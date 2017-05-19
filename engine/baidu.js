@@ -7,10 +7,10 @@ module.exports = (query, config) => {
   let languageFrom = config.baidu.from;
   let languageTo = config.baidu.to;
   const salt = (new Date).getTime();
-
+  query = query.join('\n');
 
   const data = {
-    q: query.join('\n'),
+    q: query,
     from: languageFrom,
     to: languageTo,
     appid,

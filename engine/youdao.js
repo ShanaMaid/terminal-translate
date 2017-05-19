@@ -1,8 +1,9 @@
 const http = require('http');
 
 module.exports = (query, config) => {
-  const key = config.youdao.key;
-  const keyfrom = config.youdao.keyfrom;
+  const pos = Math.floor(Math.random() * config.youdao.length);
+  const key = config.youdao[pos].key;
+  const keyfrom = config.youdao[pos].keyfrom;
 
   const data = {
     key,
@@ -10,7 +11,7 @@ module.exports = (query, config) => {
     type: 'data',
     doctype: 'json',
     version: '1.1',
-    q: query.join(',')
+    q: query.join(' ')
   }
 
   const errorCode = {

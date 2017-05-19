@@ -36,8 +36,22 @@
       "vie": "越南语 - Vietnamese"
     }
   },
-  "youdao": {
-    "key": "1253992655",
-    "keyfrom": "ShanaTranslate"
-  }
+  "youdao": [
+    {
+      "key": "1253992655",
+      "keyfrom": "ShanaTranslate"
+    },
+    {
+      "key": "303727991",
+      "keyfrom": "ShanaTool"
+    },
+    {
+      "key": "825633179",
+      "keyfrom": "ShanaTool2"
+    },
+    {
+      "key": "825633180",
+      "keyfrom": "ShanaTool3"
+    }
+  ]
 }
