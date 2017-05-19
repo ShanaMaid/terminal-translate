@@ -1,11 +1,34 @@
 # terminal-translate
-命令行翻译工具，翻译引擎支持： 百度-有道，陆续添加中~~~一直用网页版翻译真的很烦躁
+[![build](https://img.shields.io/badge/npm-1.0.3-blue.svg)](https://github.com/ShanaMaid/terminal-translate) 
+[![build](https://img.shields.io/npm/l/express.svg)](https://github.com/ShanaMaid/terminal-translate)
+[![download](https://img.shields.io/npm/dt/terminal-translate.svg?style=flat-square)](https://www.npmjs.com/package/terminal-translate)
+
+[![NPM](https://nodei.co/npm/terminal-translate.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/terminal-translate/)
+
+命令行翻译工具，三大翻译引擎支持!
+
+命令行英文报错怎么办？复制报错内容, `tl`一下即可！
+
+![](./example/example.png)
+
+## 一些注意事项
+百度翻译引擎限制: 200W字符/月
+
+有道翻译引擎限制: 1000次请求/时，申请了四个`key`，4000次请求/时
+
+爱词霸翻译引擎限制: 无限制
+
+当百度翻译引擎和有道翻译引擎的资源耗尽报错时，请使用`tr -e iciba`切换爱词霸翻译引擎！
+
+如果使用量大，请自行申请API并更换配置文件中的`key`！
+
 
 
 ## 翻译引擎支持
 
-- [x] 百度翻译
-- [x] 有道翻译
+- [x] 百度翻译 - 支持多单词、多句子、单词句子混合翻译， 语言翻译方向最多, `tl -l`查看支持翻译语言
+- [x] 有道翻译 - 只支持单句子或单词互译， 
+- [x] 爱词霸翻译 - 只支持单词或者短语翻译
 
 
 工具默认使用`有道翻译`！
@@ -19,6 +42,7 @@ npm install terminal-translate -g
 
 ## 帮助
 指令`tl` 或者 `translate`
+
 `tl -h` 查看帮助菜单
 ```
   Usage: translate
@@ -110,66 +134,45 @@ tl -e youdao
 
 ![](./example/youdao2.png)
 
+中文句子翻译结果
 
-## 配置文件
+![](./example/youdao3.png)
+
+### 爱词霸翻译引擎
+
+切换爱词霸翻译引擎
 ```
-{
-  "default": "youdao",
-  "baidu": {
-    "appid": "20170517000048160",
-    "key": "1_S_7oC6uvfR0rSpQVk6",
-    "from": "auto", ## 翻译起始语言，不建议修改，auto时引擎会自动检测语言
-    "to": "zh",     ## 翻译结果语言
-    "language": {
-      "zh": "中文 - Chinese",
-      "en": "英语 - English",
-      "yue": "粤语 - Cantonese",
-      "wyw": "文言文 - Classical Chinese",
-      "jp": "日语 - Japanese",
-      "kor": "韩语 - Korean",
-      "fra": "法语 - French",
-      "spa": "西班牙语 - Spanish",
-      "th": "泰语 - Thai",
-      "ara": "阿拉伯语 - Arabic",
-      "ru": "俄语 - Russian",
-      "pt": "葡萄牙语 - Portuguese",
-      "de": "德语 - German",
-      "it": "意大利语 - Italian",
-      "el": "希腊语 - Greek",
-      "nl": "荷兰语 - Dutch",
-      "pl": "波兰语 - Polish",
-      "bul": "保加利亚语 - Bulgarian",
-      "est": "爱沙尼亚语 - Estonian",
-      "dan": "丹麦语 - Danish",
-      "fin": "芬兰语 - Finnish",
-      "cs": "捷克语 - Czech",
-      "rom": "罗马尼亚语 - Romanian",
-      "slo": "斯洛文尼亚语 - Slovenia language",
-      "swe": "瑞典语 - Swedish",
-      "hu": "匈牙利语 - Hungarian",
-      "cht": "繁体中文 - Traditional Chinese",
-      "vie": "越南语 - Vietnamese"
-    }
-  },
-  "youdao": [
-    {
-      "key": "1253992655",
-      "keyfrom": "ShanaTranslate"
-    },
-    {
-      "key": "303727991",
-      "keyfrom": "ShanaTool"
-    },
-    {
-      "key": "825633179",
-      "keyfrom": "ShanaTool2"
-    },
-    {
-      "key": "825633180",
-      "keyfrom": "ShanaTool3"
-    }
-  ]
-}
+tl -e iciba
 ```
+
+爱词霸翻译引擎属于词典翻译，支持单个单词或者单词短语翻译，句子翻译时会报错!
+```
+  iciba can't translate sentences! 
+  please use youdao or baidu!
+```
+
+![](./example/iciba.png)
+
+
+
+## 版本更新记录
+
+v1.0.3 支持爱词霸翻译引擎，新增3个有道翻译`key`
+
+v1.0.2 支持有道翻译引擎，修复一些BUG
+
+v1.0.1 支持百度翻译引擎
+
+v1.0.0 发布
+
+
+## 支持
+如果工具有任何BUG或者你想提出改进建议，请提`issue`!
+
+如果你对此工具非常满意不妨`star`或者打赏我请我喝一瓶`脉动`？
+
+![](./example/zhifubao.png)
+![](./example/weixin.png)
+
 
 

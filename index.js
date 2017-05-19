@@ -4,7 +4,8 @@
 // 翻译引擎
 const baidu = require('./engine/baidu');
 const youdao = require('./engine/youdao');
-const engine = {baidu, youdao};
+const iciba = require('./engine/iciba');
+const engine = {baidu, youdao, iciba};
 
 
 

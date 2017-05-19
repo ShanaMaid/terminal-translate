@@ -33,7 +33,7 @@ module.exports = (query, config) => {
     });
     res.on("end", function() {
       resData = JSON.parse(resData);
-      let template = `\r\n ~ 原文: query \r\n ~ 译文: result \r\n`;
+      let template = `\r\n ~ query \r\n ~ result \r\n`;
       let str = '\r\n';
       if (!("trans_result" in resData)) {
         console.log('查询出错!错误信息如下:');
