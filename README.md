@@ -18,7 +18,7 @@
 
 爱词霸翻译引擎限制: 无限制
 
-当百度翻译引擎和有道翻译引擎的资源耗尽报错时，请使用`tr -e iciba`切换爱词霸翻译引擎！
+当百度翻译引擎和有道翻译引擎的资源耗尽报错时，请使用`tl -e iciba`切换爱词霸翻译引擎！
 
 如果使用量大，请自行申请API并更换配置文件中的`key`！
 
@@ -175,6 +175,9 @@ v1.0.0 发布
 
 ![](./example/zhifubao.png)
 ![](./example/weixin.png)
+
+## 声明
+单词翻译结果样式参照了[@偏右](https://github.com/afc163)的[fanyi](https://github.com/afc163/fanyi)
 
 
 
