@@ -20,8 +20,8 @@
     "command"
   ],
   "bin": {
-    "tl": "./bin/translate",
-    "translate": "./bin/translate"
+    "tl": "./bin/translate.js",
+    "translate": "./bin/translate.js"
   },
   "author": "ShanaMaid",
   "license": "MIT",
