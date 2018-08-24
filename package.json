@@ -1,6 +1,6 @@
 {
   "name": "terminal-translate",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "a tearmail-translate tool!",
   "main": "index.js",
   "scripts": {
