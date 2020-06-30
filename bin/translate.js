@@ -30,7 +30,7 @@ if (program.baiduFrom) {
   for (let item in language) {
     if (item === program.baiduFrom || program.baiduFrom === 'auto') {
       config.baidu.from = program.baiduFrom;
-      fs.writeFile(configPath, JSON.stringify(config));
+      fs.writeFileSync(configPath, JSON.stringify(config));
       console.log('success!');
       return;
     }
@@ -48,7 +48,7 @@ else if (program.baiduTo) {
   for (let item in language) {
     if (item === program.baiduTo) {
       config.baidu.to = program.baiduTo;
-      fs.writeFile(configPath, JSON.stringify(config));
+      fs.writeFileSync(configPath, JSON.stringify(config));
       console.log('success!');
       return;
     }
@@ -67,7 +67,7 @@ else if (program.baiduLanguage) {
 else if (program.engine) {
   if (program.engine !== 'default' && (program.engine in config)) {
     config.default = program.engine;
-    fs.writeFile(configPath, JSON.stringify(config));
+    fs.writeFileSync(configPath, JSON.stringify(config));
     console.log('success!');
     return;
   }
